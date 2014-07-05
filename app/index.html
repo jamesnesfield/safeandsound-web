@@ -31,9 +31,7 @@
     </div>
     <!--Begin MailChimp Signup Form -->
     <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css"/>
-    <style type="text/css">/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-      <We>recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */</We>
-    </style>
+    <style type="text/css"></style>
     <div id="mc_embed_signup">
       <form id="mc-embedded-subscribe-form" action="//jamesnesfield.us3.list-manage.com/subscribe/post?u=443b2b94ef027ac26e6a123e1&amp;id=54fdfa81d8" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="novalidate" class="validate">
         <div class="col-sm-12">
@@ -68,11 +66,28 @@
   <title>safeandsound</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="shortcut icon" href="/favicon.ico"><!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css"><!-- endbuild -->
   <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body><!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script><!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:js({app,.tmp}) scripts/main.js -->
+  <script src="scripts/main.js"></script><!-- endbuild -->
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+  </script>
 </body>
-<script src="../bower_components/jquery/dist/jquery.js"></script>
-<script src="scripts/main.js"></script>

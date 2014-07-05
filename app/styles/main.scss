@@ -11,8 +11,29 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
     padding: 0.2em 0;
 }
 
+$background_gardient_position: 20%;
+$background_gardient_color1:  #D2D7D3;
+$background_gardient_color2: #A3B6B2;
+
 html, body {
     height: 100%;
+}
+
+body {
+    padding-top: 20px;
+    background-color: #D2D7D3;
+    background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.87, $background_gardient_color1),
+    color-stop(1, #808080)
+    );
+    background-image: -o-linear-gradient(bottom, $background_gardient_color1 $background_gardient_position, $background_gardient_color2 100%);
+    background-image: -moz-linear-gradient(bottom, $background_gardient_color1 $background_gardient_position, $background_gardient_color2 100%);
+    background-image: -webkit-linear-gradient(bottom, $background_gardient_color1 $background_gardient_position, $background_gardient_color2 100%);
+    background-image: -ms-linear-gradient(bottom, $background_gardient_color1 $background_gardient_position, $background_gardient_color2 100%);
+    background-image: linear-gradient(to bottom, $background_gardient_color1 $background_gardient_position, $background_gardient_color2 100%);
 }
 
 .container {
@@ -21,6 +42,7 @@ html, body {
     height: auto !important;
     height: 100%;
     margin: 0 auto -55px; /* the bottom margin is the negative value of the footer's height */
+
 }
 
 .footer, .push {
@@ -49,11 +71,7 @@ a:hover {
 }
 
 /* Space out content a bit */
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #D2D7D3;
-}
+
 
 h1, h2, h3, label {
     color: #FFF;
@@ -64,6 +82,23 @@ h1, h2, h3, label {
 
 #mc-embedded-subscribe.button input{
     margin: 0 auto;
+    font-family: 'Lato', sans-serif;
+}
+
+#mc_embed_signup .button {
+    background-color: rgba(0,0,0,0);
+    border: 1px #FFF solid;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+
+}
+
+#mc_embed_signup:hover .button {
+    border: 1px #FFF solid;
+}
+
+#mc_embed_signup .button:hover {
+    background-color: rgba(255,255,255,0.3);
 }
 
 #mc_embed_signup input.email {
@@ -90,7 +125,6 @@ li {
 }
 
 
-
 .translate {
     -ms-transform: translate(-50px,0px); /* IE 9 */
      -webkit-transform: translate(-50px,10px); /* Chrome, Safari, Opera */
@@ -112,8 +146,6 @@ li {
     position: relative;
     border: 3px #aaa solid;
     z-index: 1;
-
-
 }
 
 
@@ -133,10 +165,10 @@ $outer : 60% #eee;
     margin: 25% 0 0 -25%;
     border-radius: 50%;
     border: 3px #aaa solid;
-    background-color: #DADFE1;
-      background-image:
+    background-color: #BFBFBF;
+    background-image:
         radial-gradient(
-          circle closest-side,
+        circle closest-side,
             #D2D7D3,
             #BFBFBF
         );

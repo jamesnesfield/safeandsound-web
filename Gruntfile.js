@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 options: {
                     pretty: true
                 },
-                files: {'app/index.html': ['views/*.jade']}
+                files: {'.tmp/index.html': ['views/*.jade']}
             }
         },
         // Watches files for changes and runs tasks based on the changed files
@@ -39,7 +39,7 @@ module.exports = function (grunt) {
             jade: {
                 files: 'views/*.jade',
                 tasks: [ 'jade' ]
-            },
+              },
             bower: {
                 files: ['bower.json'],
                 tasks: ['bowerInstall']
@@ -296,28 +296,31 @@ module.exports = function (grunt) {
         // By default, your `index.html`'s <!-- Usemin block --> will take care of
         // minification. These next options are pre-configured if you do not wish
         // to use the Usemin blocks.
-        cssmin: {
-            dist: {
-                files: {
-                    '<%= config.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%= config.app %>/styles/{,*/}*.css'
-                    ]
-                }
-            }
-        },
-        uglify: {
-            dist: {
-                files: {
-                    '<%= config.dist %>/scripts/scripts.js': [
-                        '<%= config.dist %>/scripts/scripts.js'
-                    ]
-                }
-            }
-        },
-        concat: {
-            dist: {}
-        },
+        // cssmin: {
+        //     dist: {
+        //         files: {
+        //             '<%= config.dist %>/styles/main.css': [
+        //                 '.tmp/styles/{,*/}*.css',
+        //                 '<%= config.app %>/styles/{,*/}*.css'
+        //             ]
+        //         }
+        //     }
+        // },
+        // uglify: {
+        //     dist: {
+        //         files: {
+        //             '<%= config.dist %>/scripts/scripts.js': [
+        //                 '<%= config.dist %>/scripts/scripts.js'
+        //             ]
+        //         }
+        //     }
+        // },
+        // concat: {
+        //         dist: {
+        //           src: ['app/scripts/{,*/}*.js'],
+        //           dest: 'dist/scripts/main.js',
+        //         },
+        // },
 
         // Copies remaining files to places other tasks can use
         copy: {
@@ -331,7 +334,7 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt}',
                         '.htaccess',
                         'images/{,*/}*.webp',
-                        '{,*/}*.html',
+                        '.tmp/{,*/}*.html',
                         'styles/fonts/{,*/}*.*'
                     ]
                 }, {
@@ -348,6 +351,12 @@ module.exports = function (grunt) {
                 cwd: '<%= config.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            scripts: {
+                expand: true,
+                cwd: '<%= config.app %>/scripts',
+                dest: '.tmp/scripts/',
+                src: '{,*/}*.js'
             }
         },
 
@@ -405,11 +414,12 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'useminPrepare',
+        'jade',
         'concurrent:dist',
         'autoprefixer',
-        'concat',
-        'cssmin',
-        'uglify',
+        //'concat',
+        //'cssmin',
+        //'uglify',
         'copy:dist',
         'rev',
         'usemin',
