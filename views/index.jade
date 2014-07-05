@@ -1,26 +1,29 @@
 extends layout
 block content
 	.container
-		div.col-sm-12.rotate-45
-			div.translate
+		div.col-sm-12
+			div#dial-container
 				div.dial
-						ul.tick-container
-							li.tick.tick1
-							li.tick.tick2
-							li.tick.tick3
-							li.tick.tick4
-							li.tick.tick5
-							li.tick.tick6
-							li.tick.tick7
-							li.tick.tick8
-							li.tick.tick9
-							li.tick.tick10
-							li.tick.tick11
-							li.tick.tick12
-						div.circle1
-						div.circle2
-						div.shine
+					ul.tick-container
+						li.tick.tick1
+						li.tick.tick2
+						li.tick.tick3
+						li.tick.tick4
+						li.tick.tick5
+						li.tick.tick6
+						li.tick.tick7
+						li.tick.tick8
+						li.tick.tick9
+						li.tick.tick10
+						li.tick.tick11
+						li.tick.tick12
+					div.circle1
+					div.circle2
+					div.shine
+				div.rotate-45.hidden-xs#arrow-container
 					div.arrow-up
+		div.col-sm-12.visible-xs
+			div.arrow-sm
 		div.col-sm-8.col-sm-offset-2
 			h1 coming soon to iOS 8
 			div.col-sm12
@@ -44,9 +47,9 @@ block content
 					// End mc_embed_signup
 
 			img.img-responsive.hidden(src="images/app-store.png")
-		div.push
-	div.footer
-		p
+		div.push.clear
+	div.footer.clearfix
+		p.col-sm-12
 			span.glyphicon.glyphicon-copyright-mark
 			a(href="jamesnesfield.com")  jamesnesfield 
 			| 2014

@@ -10,12 +10,21 @@ $background_gardient_position: 20%;
 $background_gardient_color1:  #D2D7D3;
 $background_gardient_color2: #A3B6B2;
 
+
+
+#arrow-container {
+    position: absolute;
+    bottom: 30px;
+    left: 80px;
+}
+
 html, body {
     height: 100%;
 }
 
 body {
     padding-top: 20px;
+    padding-bottom: 55px;
     background-color: #D2D7D3;
     background-image: -webkit-gradient(
     linear,
@@ -29,14 +38,17 @@ body {
     background-image: -webkit-linear-gradient(bottom, $background_gardient_color1 $background_gardient_position, $background_gardient_color2 100%);
     background-image: -ms-linear-gradient(bottom, $background_gardient_color1 $background_gardient_position, $background_gardient_color2 100%);
     background-image: linear-gradient(to bottom, $background_gardient_color1 $background_gardient_position, $background_gardient_color2 100%);
+    background-attachment: fixed;
+
 }
 
 .container {
+    overflow: auto;
     padding-top: 5%;
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -55px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto 0px; 
 
 }
 
@@ -122,7 +134,7 @@ li {
 
 .translate {
     -ms-transform: translate(-50px,0px); /* IE 9 */
-     -webkit-transform: translate(-50px,10px); /* Chrome, Safari, Opera */
+     -webkit-transform: translate(-50px,0px); /* Chrome, Safari, Opera */
     transform: translate(-50px,0px); 
 }
 
@@ -199,6 +211,16 @@ $outer : 60% #eee;
     border-bottom: 30px solid white;
     margin-top: -35px;
 }
+
+.arrow-sm {
+    width: 0; 
+    height: 0; 
+    margin: 0 auto;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid white;
+    margin-top: -36px;
+}
 /* Custom page footer */
 
 
@@ -234,10 +256,16 @@ $tick-period : 80s;
 
 @media(max-width:767px){
     .arrow-up {
-        border-left: 40px solid transparent;
-        border-right: 40px solid transparent;
-        border-bottom:40px solid white;
-        margin-top: -25px;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid white;
+        margin-top: -65px;
+    }
+
+    #arrow-container {
+        position: absolute;
+        bottom: 0px;
+        left: 120px;
     }
 
     .translate {
@@ -249,10 +277,10 @@ $tick-period : 80s;
 
 @media(min-width:768px){
     .arrow-up {
-        border-left: 70px solid transparent;
-        border-right: 70px solid transparent;
-        border-bottom:70px solid white;
-        margin-top: -15px;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom:50px solid white;
+        margin-top: 0px;
     }
 }
 

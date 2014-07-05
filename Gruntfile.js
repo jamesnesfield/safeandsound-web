@@ -39,14 +39,13 @@ module.exports = function (grunt) {
             jade: {
                 files: 'views/*.jade',
                 tasks: [ 'jade' ]
-              },
+            },
             bower: {
                 files: ['bower.json'],
                 tasks: ['bowerInstall']
             },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint'],
                 options: {
                     livereload: true
                 }
@@ -144,6 +143,8 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc',
                 reporter: require('jshint-stylish')
             },
+            ignores:['app/scripts/jquery.min.js'
+            ],
             all: [
                 'Gruntfile.js',
                 '<%= config.app %>/scripts/{,*/}*.js',
@@ -340,7 +341,7 @@ module.exports = function (grunt) {
                     dot: true,
                     cwd: '.tmp',
                     dest: 'dist',
-                    src: '{,*/}*.*' 
+                    src: '{,*/}*.*'
                 }]
             },
             styles: {
