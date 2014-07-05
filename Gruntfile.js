@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 options: {
                     pretty: true
                 },
-                files: {'.tmp/index.html': ['views/*.jade']}
+                files: {'.tmp/index.html': ['views/*.jade'],'<%= config.app %>/index.html': ['views/*.jade']}
             }
         },
         // Watches files for changes and runs tasks based on the changed files
@@ -208,7 +208,6 @@ module.exports = function (grunt) {
         bowerInstall: {
             app: {
                 src: ['<%= config.app %>/index.html'],
-                exclude: ['bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js']
             },
             sass: {
                 src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}']
@@ -334,15 +333,14 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt}',
                         '.htaccess',
                         'images/{,*/}*.webp',
-                        '.tmp/{,*/}*.html',
                         'styles/fonts/{,*/}*.*'
                     ]
-                }, {
+                },{
                     expand: true,
                     dot: true,
-                    cwd: '.',
-                    src: ['bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*'],
-                    dest: '<%= config.dist %>'
+                    cwd: '.tmp',
+                    dest: 'dist',
+                    src: '{,*/}*.*' 
                 }]
             },
             styles: {
@@ -364,14 +362,18 @@ module.exports = function (grunt) {
         concurrent: {
             server: [
                 'sass:server',
-                'copy:styles'
+                'jade',
+                'copy:styles',
+                'copy:scripts'
             ],
             test: [
                 'copy:styles'
             ],
             dist: [
                 'sass',
-                'copy:styles'
+                'jade',
+                'copy:styles',
+                'copy:scripts'
             ]
         }
     });
