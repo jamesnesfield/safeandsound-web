@@ -356,6 +356,14 @@ module.exports = function (grunt) {
                 cwd: '<%= config.app %>/scripts',
                 dest: '.tmp/scripts/',
                 src: '{,*/}*.js'
+            },
+            other: {
+                expand: true,
+                cwd: '<%= config.app %>/scripts',
+                dest: '.tmp/',
+                src: [
+                        '*.{ico,png,txt}',
+                        '.htaccess']
             }
         },
 
